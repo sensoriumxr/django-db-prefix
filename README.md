@@ -25,7 +25,7 @@ Installation
 
 1. Install using pip:
 
-    pip install git+https://github.com/benslavin/django-db-prefix.git
+    pip install git+https://github.com/jiinus/django-db-prefix.git
 
 2. Add django_db_prefix at the top of your INSTALLED_APPS list. It is
    recommended that django_db_prefix is the first listed application, but it
@@ -71,6 +71,12 @@ found, no prefix will be added.
 3. `None` allowing for a global default when using the dictionary specification
    format.
 
+Replacing the app-specific prefix
+=================================
+
+It is also possible to replace the app's own prefix. To do this, include the prefix with application name and a wildcard, eg. `foo.*`.
+
+
 A sample specification:
 
     DB_PREFIX = {
@@ -78,5 +84,6 @@ A sample specification:
         "foo.baz": "baz_model_prefix",
         "foo": "foo_app_backup_prefix",
         "wobble": "wobble_app_prefix",
+        "foo.*": "bar",
         None: "default_prefix"
     }
